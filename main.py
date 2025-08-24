@@ -32,6 +32,18 @@ async def al(interaction: discord.Interaction):
     # Envoi de l'embed
     await interaction.response.send_message(embed=embed)
 
+@bot.event
+async def on_ready():
+    """
+    Se déclenche lorsque le bot est connecté à Discord et prêt.
+    """
+    print(f'Connecté en tant que {bot.user.name} !')
+    try:
+        # Synchronise toutes les commandes slash avec Discord
+        synced = await bot.tree.sync()
+        print(f"Synchronisé {len(synced)} commande(s).")
+    except Exception as e:
+        print(f"Erreur lors de la synchronisation : {e}")
 
 # --- ACTIVER LE BOT ---
 keep_alive()
