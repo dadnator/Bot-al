@@ -18,7 +18,7 @@ liste_de_noms = [
 
 # --- Commande /al pour choisir un nom au hasard ---
 @bot.tree.command(name="al", description="Tire au sort un nom parmi une liste de 12.")
-async def tirage(interaction: discord.Interaction):
+async def al(interaction: discord.Interaction):
     # Choix d'un nom au hasard dans la liste
     nom_gagnant = random.choice(liste_de_noms)
 
